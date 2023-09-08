@@ -140,12 +140,15 @@ namespace firstGame
                             Console.WriteLine("Противник не имеет достаточно энергии, пропускает ход");
                             Console.ReadLine();
                         }
+                        continue;
                     }
+
                     if (action == 5)
                     {
                         enemyEnergy += 35;
                         Console.WriteLine("Противник медитирует восстанавливая 35 единиц энергии");
                         Console.ReadLine();
+                        continue;
                     }
                 
                     else
@@ -187,6 +190,25 @@ namespace firstGame
                             playerHealth -= 10;
                             Console.WriteLine("Вас треснули посохом, нанесено 10 единиц урона");
                             Console.ReadLine();
+                    }
+                    if (action == 4)
+                    {
+                        if (enemyHealth >= 50)
+                        {
+                            action = rnd.Next(1, 4);
+                        }
+                        else if (enemyEnergy >= 55)
+                        {
+                            enemyHealth += 30;
+                            enemyEnergy -= 55;
+                            Console.WriteLine("Противник применил заклинание лечения, его здоровье восстановилось на 30 единиц");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Противник не имеет достаточно энергии, пропускает ход");
+                            Console.ReadLine();
+                        }
                     }
                 }
                 else
