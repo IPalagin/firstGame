@@ -122,9 +122,24 @@ namespace firstGame
                     {
                         action = 5;
                     }
-                    if (enemyHealth <= 25)
+                    if (enemyHealth <= 25 && enemyEnergy >=55)
                     {
                         action = 4;
+                    }
+                    if (action == 4)
+                    {
+                        if (enemyEnergy >= 55)
+                        {
+                            enemyHealth += 30;
+                            enemyEnergy -= 55;
+                            Console.WriteLine("Противник применил заклинание лечения, его здоровье восстановилось на 30 единиц");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Противник не имеет достаточно энергии, пропускает ход");
+                            Console.ReadLine();
+                        }
                     }
                     if (action == 5)
                     {
@@ -135,7 +150,7 @@ namespace firstGame
                 
                     else
 
-                        action = rnd.Next(1, 5);
+                        action = rnd.Next(1, 4);
 
                     if (action == 1)
                     {
@@ -172,25 +187,6 @@ namespace firstGame
                             playerHealth -= 10;
                             Console.WriteLine("Вас треснули посохом, нанесено 10 единиц урона");
                             Console.ReadLine();
-                    }
-                    if (action == 4)
-                    {
-                        if (enemyHealth >= 50)
-                        {
-                            action = rnd.Next(1, 4);
-                        }
-                        else if (enemyEnergy >= 55)
-                        {
-                            enemyHealth += 30;
-                            enemyEnergy -= 55;
-                            Console.WriteLine("Противник применил заклинание лечения, его здоровье восстановилось на 30 единиц");
-                            Console.ReadLine();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Противник не имеет достаточно энергии, пропускает ход");
-                            Console.ReadLine();
-                        }
                     }
                 }
                 else
